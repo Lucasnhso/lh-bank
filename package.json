@@ -1,0 +1,16 @@
+{
+  "name": "pix-bank",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "author": "Lucas Oliveira",
+  "license": "ISC",
+  "workspaces": [
+    "./apps/*",
+    "./packages/*"
+  ],
+  "dependencies": {
+    "@worskpace/utils": "1.0.0"
+  }
+}
