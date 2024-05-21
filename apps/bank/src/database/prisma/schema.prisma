@@ -6,3 +6,50 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Account {
+  id               String        @id @default(cuid())
+  number           String        @unique
+  ownerName        String        @map("owner_name")
+  balance          Float
+  pixKeys          PixKey[]
+  transactionsTo   Transaction[] @relation(name: "AccountsTo")
+  transactionsFrom Transaction[] @relation(name: "AccountsFrom")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("account")
+}
+
+model PixKey {
+  id        String  @id @default(cuid())
+  kind      String
+  key       String  @unique
+  account   Account @relation(fields: [accountId], references: [id])
+  accountId String  @map("account_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("pix_key")
+}
+
+model Transaction {
+  id            String   @id @default(cuid())
+  amount        Float
+  description   String
+  accountFrom   Account? @relation(fields: [accountIdFrom], references: [id], name: "AccountsFrom")
+  accountIdFrom String?  @map("account_id_from")
+  accountTo     Account? @relation(fields: [accountIdTo], references: [id], name: "AccountsTo")
+  accountIdTo   String?  @map("account_id_to")
+  pixKeyKey     String   @map("pix_key_key")
+  pixKeyKind    String   @map("pix_key_kind")
+  operation     String
+  status        String   @default("pending")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("transaction")
+}
