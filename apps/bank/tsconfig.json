@@ -1,0 +1,3 @@
+{
+  "extends": "@pix-bank/tsconfig/base.json"
+}
