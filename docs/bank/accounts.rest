@@ -1,0 +1,15 @@
+@url = http://localhost:9090
+
+### Get account by id
+GET {{url}}/account/clwgupw8i00005znntfdjmq7g
+
+### Create account
+
+POST {{url}}/account
+Content-Type: application/json
+
+{
+  "number": "0000",
+  "ownerName": "Dono",
+  "balance": 0
+}

@@ -1,0 +1,15 @@
+@url = http://localhost:9090
+@accountId = clwgupw8i00005znntfdjmq7g
+
+### Get pix keys
+GET {{url}}/account/{{accountId}}/pixKeys
+
+### Create pix key
+
+POST {{url}}/account/{{accountId}}/pixKey
+Content-Type: application/json
+
+{
+  "key": "email@email.com",
+  "kind": "email"
+}
