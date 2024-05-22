@@ -1,5 +1,5 @@
 {
-  "name": "@pix-bank/tsconfig",
+  "name": "@lh-bank/tsconfig",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",

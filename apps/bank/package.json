@@ -1,5 +1,5 @@
 {
-  "name": "@pix-bank/bank",
+  "name": "@lh-bank/bank",
   "version": "1.0.0",
   "main": "index.js",
   "license": "ISC",
@@ -11,7 +11,7 @@
     "dev": "tsx watch index.ts"
   },
   "devDependencies": {
-    "@pix-bank/tsconfig": "^1.0.0",
+    "@lh-bank/tsconfig": "^1.0.0",
     "@types/node": "^20.12.12",
     "prisma": "^5.14.0",
     "tsx": "^4.10.5"
