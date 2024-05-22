@@ -1,7 +1,7 @@
 import { FastifyReply, FastifyRequest } from "fastify";
+import { Account } from "@prisma/client";
 
 import AccountServices from "../accounts/services";
-import { Account } from "@prisma/client";
 
 async function create(request: FastifyRequest<{Body: Account}>, reply: FastifyReply) {
   const data = request.body;
